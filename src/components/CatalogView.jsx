@@ -20,17 +20,17 @@ const CatalogView = () => {
         <>
             <div className="products-list">
                 {products.map(product => (
-                        <div
-                            key={product.id}
-                            className="product max-w-sm p-6 rounded-lg shadow-lg bg-blue-300"
-                        >
-                            <Link to={`/product/${product.id}`} onClick={() => handleProductClick(product)}>
+                    <Link
+                        className="product max-w-sm p-6 rounded-lg shadow-lg bg-blue-300"
+                        key={product.id}
+                        to={`/product/${product.id}`}
+                        onClick={() => handleProductClick(product)}
+                    >
                             <img src={product.thumbnail} alt=""></img>
                             <h2 className="text-xl font-extrabold">Brand: {product.brand}</h2>
                             <p>Description: {product.description}</p>
                             <p>Price: {product.price}€</p>
-                            </Link>
-                        </div>
+                    </Link>
                 ))}
             </div>
         </>

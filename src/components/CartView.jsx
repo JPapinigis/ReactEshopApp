@@ -24,33 +24,34 @@ const CartView = () => {
     })
 
     return (
-        <div>
+        <div data-cy="cart-items">
                 <Link
                     to='/'
                     className="text-blue-300 bg-gray-700 border border-gray-800 hover:bg-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-4"
                 >Back to catalog</Link>
             {cart.length === 0 ? (
-                <p className="mt-4 text-blue-300">Your cart is empty</p>
+                <h1 className="text-2xl font-extrabold text-blue-300 mt-4">Your cart is empty</h1>
             ) : (
                 <div>
                     {cart.map((product, index) => (
                         <div className="item-details rounded-lg shadow-lg bg-blue-300 mt-4" key={index}>
                             <img src={product.thumbnail} alt=""></img>
-                            <span>Brand: {product.brand}</span>
-                            <span>Category: {product.category}</span>
-                            <span>Price: {product.price}€</span>
+                            <span data-cy="brand">Brand: {product.brand}</span>
+                            <span data-cy="category">Category: {product.category}</span>
+                            <span data-cy="price">Price: {product.price}€</span>
                             <button
                                 onClick={() => handleRemoveFromCart(product)}
                                 className="text-blue-300 bg-gray-700 border border-gray-800 hover:bg-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
                             >Remove</button>
                         </div>
                     ))}
-                    {total > 1000 ? (
-                        <p className="text-blue-300">Discounted total: { formattedTotal }€</p>
-                    ) : (
-                        <p className="text-blue-300">Total: { total }€</p>
-                    )}
+
                 </div>
+            )}
+            {total > 0 && (
+                <p data-cy="total-price" className="text-blue-300">
+                    {total > 1000 ? `Discounted total: ${ formattedTotal }€` : `Total: ${ total }€`}
+                </p>
             )}
         </div>
     )}

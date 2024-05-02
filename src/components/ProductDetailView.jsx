@@ -16,7 +16,7 @@ const SelectedProduct = () => {
     return (
         <div className="bg-gray-700">
             {selectedProduct ? (
-                <div className="rounded-lg shadow-lg bg-blue-300 p-10 flex mt-50">
+                <div data-cy="productDetails-card" className="rounded-lg shadow-lg bg-blue-300 p-10 flex mt-50">
                     <div className="mr-10">
                         <img src={ selectedProduct.thumbnail } alt=""/>
                     </div>
