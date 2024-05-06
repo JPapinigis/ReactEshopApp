@@ -77,9 +77,9 @@ let initialItemCount
       })
 }
 
-describe ('HomepageTests', () => {
+describe ('cartTests', () => {
 
-  it('homepage elements', () => {
+  it('check product cart', () => {
     let currentTotal = 0
 
     cy.visit('/')
